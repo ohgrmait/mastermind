@@ -1,4 +1,5 @@
 require_relative 'game'
+require_relative 'human'
 require_relative 'computer'
 
 class Mastermind
@@ -13,8 +14,11 @@ class Mastermind
   end
 
   def play_game
+    secret_code = @game.create_code
+    puts "The secret code is: #{secret_code}"
     TURNS.times do |turn|
-      puts "turn: #{turn}, secret code: #{@game.create_code}"
+      print "turn: #{turn}, your guess: "
+      @game.guess_code
     end
   end
 end
