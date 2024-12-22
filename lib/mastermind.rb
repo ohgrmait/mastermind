@@ -2,6 +2,8 @@ require_relative 'game'
 require_relative 'computer'
 
 class Mastermind
+  TURNS = 12
+
   def initialize
     @game = Game.new
   end
@@ -11,7 +13,9 @@ class Mastermind
   end
 
   def play_game
-    puts "secret code: #{@game.create_code}"
+    TURNS.times do |turn|
+      puts "turn: #{turn}, secret code: #{@game.create_code}"
+    end
   end
 end
 
