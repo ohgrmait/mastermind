@@ -11,5 +11,3 @@ class Computer
     @patterns.sample.map { |elem| elem[0] }.join
   end
 end
-
-puts Computer.new.create_code
