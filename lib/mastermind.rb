@@ -10,7 +10,17 @@ class Mastermind
   end
 
   def start_game
+    show_prompt
     play_game
+  end
+
+  def show_prompt
+    puts '=> A game of Mastermind between two players: Human and Computer!'
+    puts ''
+    puts "=> You can guess the opponent's secret code within twelve turns."
+    puts '   At each turn you get a feedback (or clues) that tells you how'
+    puts '   good the guess was - whether it was exactly correct (red peg)'
+    puts '   or just the exact color but in the wrong position (white peg).'
   end
 
   def play_game
