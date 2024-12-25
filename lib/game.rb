@@ -30,6 +30,7 @@ class Game
     white_pegs = 0
     guess.chars.each_with_index do |guess_char, guess_index|
       code.chars.each_with_index do |code_char, code_index|
+        next if guess[guess_index] == code[guess_index]
         next unless guess_char == code_char &&
                     guess_index != code_index &&
                     @matches[code_index] != 'M'
