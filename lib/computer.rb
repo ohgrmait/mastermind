@@ -10,4 +10,8 @@ class Computer
     # Create code by choosing 1 pattern from 1296 permutations
     @patterns.sample.map { |elem| elem[0] }.join
   end
+
+  def to_s
+    'Computer'
+  end
 end
