@@ -1,8 +1,10 @@
 class Game
+  attr_reader :code_maker, :code_breaker
+
   def initialize
     @matches = nil
-    @code_breaker = Human.new
-    @code_maker = Computer.new
+    @code_maker = nil
+    @code_breaker = nil
   end
 
   def guess_code
@@ -43,6 +45,16 @@ class Game
     @matches = Array.new(4)
     red_pegs = red_pegs_count(code, guess)
     white_pegs = white_pegs_count(code, guess)
-    "red pegs: #{red_pegs}, white pegs: #{white_pegs}"
+    [red_pegs, white_pegs]
+  end
+
+  def assign_players(user_input)
+    if user_input == 'c'
+      @code_maker = Human.new
+      @code_breaker = Computer.new
+    elsif user_input == 'g'
+      @code_maker = Computer.new
+      @code_breaker = Human.new
+    end
   end
 end
