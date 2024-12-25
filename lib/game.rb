@@ -15,15 +15,15 @@ class Game
     @code_maker.create_code
   end
 
-  def red_pegs_count(code, guess)
-    red_pegs = 0
+  def black_pegs_count(code, guess)
+    black_pegs = 0
     guess.chars.each_with_index do |char, index|
       if char == code[index]
-        red_pegs += 1
+        black_pegs += 1
         @matches[index] = 'M'
       end
     end
-    red_pegs
+    black_pegs
   end
 
   def white_pegs_count(code, guess)
@@ -44,9 +44,9 @@ class Game
 
   def feedback(code, guess)
     @matches = Array.new(4)
-    red_pegs = red_pegs_count(code, guess)
+    black_pegs = black_pegs_count(code, guess)
     white_pegs = white_pegs_count(code, guess)
-    [red_pegs, white_pegs]
+    [black_pegs, white_pegs]
   end
 
   def assign_players(user_input)

@@ -1,5 +1,5 @@
 class Computer
-  COLORS = %w[Blue Orange Yellow Green Pink Violet].freeze
+  COLORS = %w[Blue Orange Yellow Green Purple Red].freeze
 
   def initialize
     # A total of 4 holes and 6 colors (6^4 = 1296 permutations)

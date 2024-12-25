@@ -44,10 +44,10 @@ class Mastermind
         print '🟡 '
       when 'G'
         print '🟢 '
+      when 'P'
+        print '🟣 '
       when 'R'
         print '🔴 '
-      when 'V'
-        print '🟣 '
       end
     end
   end
