@@ -14,11 +14,12 @@ class Mastermind
   end
 
   def play_game
-    secret_code = @game.create_code
-    puts "The secret code is: #{secret_code}"
+    code = @game.create_code
+    puts "The secret code is: #{code}"
     TURNS.times do |turn|
       print "turn: #{turn}, your guess: "
-      @game.guess_code
+      guess = @game.guess_code
+      puts "feedback: #{@game.feedback(code, guess)}"
     end
   end
 end
