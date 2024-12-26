@@ -1,8 +1,6 @@
 <div align="center">
   <h1>Mastermind</h1>
 
-  [![Run on Replit](https://replit.com/badge?caption=Run%20on%20Replit)]()
-
   A Command Line Version of Mastermind
 </div>
 
