@@ -1,6 +1,13 @@
-class Human
+# frozen_string_literal: true
+
+class Human # rubocop:disable Style/Documentation
+  def initialize(game)
+    @game = game
+  end
+
   def create_code
-    print '=> Hey! Please enter your secret code: '
+    puts ''
+    print '...Please create the secret code for game: '
     gets.chomp
   end
 
