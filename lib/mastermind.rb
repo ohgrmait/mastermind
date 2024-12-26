@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 require_relative 'game'
+require_relative 'player'
+
 require_relative 'human'
 require_relative 'computer'
 
@@ -35,6 +37,14 @@ class Mastermind # rubocop:disable Style/Documentation,Metrics/ClassLength
   def user_input
     print '...Do you wanna (c)reate or (g)uess the code? '
     choice = gets.chomp
+    raise StandardError unless %w[c g].include?(choice)
+  rescue StandardError
+    puts ''
+    puts '...Excuse me, please choose a valid option!!!'
+      .colorize(color: :light_red, mode: :bold, background: :light_yellow)
+    puts ''
+    retry
+  else
     @game.assign(choice)
   end
 
@@ -92,7 +102,16 @@ class Mastermind # rubocop:disable Style/Documentation,Metrics/ClassLength
   def human_guess(turn)
     puts ''
     print "...#{turn + 1} Please enter your guess for the code: "
-    @game.guess_code
+    code = @game.guess_code
+    raise StandardError unless code.length == 4 &&
+                               code.chars.all? { |elem| %w[B O Y G P R].include?(elem) }
+  rescue StandardError
+    puts ''
+    puts '...Excuse me, please choose a valid color!'
+      .colorize(color: :light_red, mode: :bold, background: :light_yellow)
+    retry
+  else
+    code
   end
 
   def computer_guess(turn)
