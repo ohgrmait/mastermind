@@ -1,9 +1,13 @@
-class Game
-  attr_reader :code_maker, :code_breaker, :guess, :code
+# frozen_string_literal: true
+
+class Game # rubocop:disable Style/Documentation
   attr_accessor :turn
+  attr_reader :guess, :code,
+              :code_maker,
+              :code_breaker
 
   def initialize
-    @turn = 0
+    @turn = nil
     @code = nil
     @guess = nil
     @matches = nil
@@ -28,11 +32,11 @@ class Game
 
   def assign(user_input)
     if user_input == 'c'
-      @code_maker = Human.new
+      @code_maker = Human.new(self)
       @code_breaker = Computer.new(self)
     elsif user_input == 'g'
+      @code_breaker = Human.new(self)
       @code_maker = Computer.new(self)
-      @code_breaker = Human.new
     end
   end
 
